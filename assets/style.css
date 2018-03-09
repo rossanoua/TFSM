@@ -1,0 +1,23 @@
+.content-wrapper, .main-footer {
+    margin: 0px !important;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.wrapper{
+    position: absolute;
+    width: 100%;
+}
+
+.form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form textarea{
+    max-width: 100%;
+}
