@@ -51,7 +51,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="form-processor.php" method="post" class="form-horizontal">
+            <form id="contact-form" enctype="multipart/form-data" action="form-processor.php" method="post" class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name</label>
@@ -88,14 +88,14 @@
                   <div class="col-sm-10">
                     <input type="file" id="exampleInputFile" name="file" required>
                   </div>
-                  <p class="help-block">Example block-level help text here.</p>
+                  <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>
                 </div>
 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
 
-                <button type="submit" class="btn btn-info pull-right">Send</button>
+                <button type="submit" class="btn btn-info pull-right" id="subm-form">Send</button>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -121,6 +121,28 @@
 <!-- AdminLTE App -->
 <script src="assets/dist/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="assets/dist/js/demo.js"></script>
+<script src="assets/dist/demo.js"></script>
+<script>
+
+//    $("#subm-form").on("click", function(e){
+//        e.preventDefault();
+//        var data = $("#contact-form").serialize();
+////        console.log(data);
+//        $.ajax({
+//            url: 'form-processor.php',
+//            type: 'POST',
+//            contentType: false,
+//            processData: false,
+//            data: {
+//                data: data,
+//    },
+//        success: function(msg) {
+////            var m = msg.toString();
+//            console.log(msg);
+//
+//        }
+//    });
+//    });
+</script>
 </body>
 </html>

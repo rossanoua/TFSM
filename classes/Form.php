@@ -6,14 +6,14 @@ class Form
     public $usersurname;
     public $email;
     public $comment;
-    public $file;
+
 
     public function __construct(){
         $this->getUsername();
         $this->getUsersurname();
         $this->getEmail();
         $this->getComment();
-        $this->getFile();
+
     }
 
     public function setUsername(){
@@ -50,14 +50,5 @@ class Form
 
     public function getComment(){
         return $this->setComment();
-    }
-
-    public function setFile(){
-        $this->file = $_POST['file'];
-        return $this->file;
-    }
-
-    public function getFile(){
-        return $this->setFile();
     }
 }
