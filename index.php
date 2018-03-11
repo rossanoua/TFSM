@@ -1,16 +1,17 @@
+<?php
+require_once 'classes/CsrfToken.php';
+
+$tok = new \classes\CsrfToken();
+$tok->generateToken();
+$token = $tok->token;
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Form Test Task for SphereMall</title>
-    <?php
-        require_once 'classes/CsrfToken.php';
 
-        $tok = new \classes\CsrfToken();
-        $tok->generateToken();
-        $token = $tok->token;
-    ?>
     <meta content="<?= $token ?>" name="csrf_token" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
