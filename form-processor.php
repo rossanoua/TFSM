@@ -1,16 +1,17 @@
 <?php
-//ini_set('error_reporting', E_ALL);
-//ini_set('display_errors', '1');
-namespace classes;
-require_once __DIR__.'/includes.php';
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', '1');
 
-return json_encode(123);
+require_once __DIR__.'/includes.php';
+use classes\CsrfToken;
 //use models\Form;
 
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 {
 
     $tok = new CsrfToken();
+//    return json_encode(123);
+    return json_encode($tok, 123);
     $t = $tok->token;
     if($tok->validateToken($t)){
         return json_encode(var_dump($_POST));
