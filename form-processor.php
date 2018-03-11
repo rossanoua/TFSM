@@ -1,6 +1,30 @@
 <?php
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', '1');
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', '1');
+namespace classes;
+require_once __DIR__.'/includes.php';
+
+return json_encode(123);
+//use models\Form;
+
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+{
+
+    $tok = new CsrfToken();
+    $t = $tok->token;
+    if($tok->validateToken($t)){
+        return json_encode(var_dump($_POST));
+    }
+
+    exit;
+}
+
+
+
+
+
+
+//exit();
 
 
 //ini_set('post_max_size', 1024*5);
@@ -12,7 +36,6 @@ ini_set('display_errors', '1');
 
 //exit();
 
-//require_once __DIR__.'/includes.php';
 //use models\Form;
 //var_dump($_POST);
 //return var_dump(123);

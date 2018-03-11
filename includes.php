@@ -4,6 +4,7 @@ define('__ROOT__', dirname(__FILE__));
 //exit();
 require_once __ROOT__.'/inc/config.php';
 
+require_once __ROOT__.'/classes/CsrfToken.php';
 require_once __ROOT__.'/models/Form.php';
 require_once __ROOT__.'/classes/Form.php';
 

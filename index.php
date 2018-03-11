@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Form Test Task for SphereMall</title>
+    <?php
+        require_once 'classes/CsrfToken.php';
+
+        $tok = new \classes\CsrfToken();
+        $tok->generateToken();
+        $token = $tok->token;
+    ?>
+    <meta content="<?= $token ?>" name="csrf_token" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -52,6 +60,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form id="contact-form" enctype="multipart/form-data" action="form-processor.php" method="post" class="form-horizontal">
+                <input type="hidden" name="csrf_tok" value="">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name</label>
@@ -83,13 +92,13 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>
-                  <div class="col-sm-10">
-                    <input type="file" id="exampleInputFile" name="file" required>
-                  </div>
-                  <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>
-                </div>
+<!--                <div class="form-group">-->
+<!--                  <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>-->
+<!--                  <div class="col-sm-10">-->
+<!--                    <input type="file" id="exampleInputFile" name="file" required>-->
+<!--                  </div>-->
+<!--                  <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>-->
+<!--                </div>-->
 
               </div>
               <!-- /.box-body -->
@@ -114,35 +123,30 @@
 
 <!-- jQuery 3 -->
 <script src="assets/jquery/dist/jquery.min.js"></script>
+<!-- jQuery validate -->
+<script src="assets/jquery/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="assets/jquery/plugins/jquery-validate/additional-methods.js"></script>
+<!--<script src="assets/jquery/plugins/jquery-validate/localization/messages_ru.min.js"></script>-->
+<!--<script src="assets/jquery/plugins/jquery-validate/localization/messages_uk.min.js"></script>-->
+
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- form validation script -->
+<script src="assets/dist/form.validation.js"></script>
+
 <!-- FastClick -->
-<script src="assets/fastclick/lib/fastclick.js"></script>
+<!--<script src="assets/fastclick/lib/fastclick.js"></script>-->
 <!-- AdminLTE App -->
-<script src="assets/dist/adminlte.min.js"></script>
+<!--<script src="assets/dist/adminlte.min.js"></script>-->
 <!-- AdminLTE for demo purposes -->
-<script src="assets/dist/demo.js"></script>
+<!--<script src="assets/dist/demo.js"></script>-->
 <script>
 
-//    $("#subm-form").on("click", function(e){
-//        e.preventDefault();
-//        var data = $("#contact-form").serialize();
-////        console.log(data);
-//        $.ajax({
-//            url: 'form-processor.php',
-//            type: 'POST',
-//            contentType: false,
-//            processData: false,
-//            data: {
-//                data: data,
-//    },
-//        success: function(msg) {
-////            var m = msg.toString();
-//            console.log(msg);
+//(function($){
 //
-//        }
-//    });
-//    });
+
+//}(jQuery));
 </script>
 </body>
 </html>
