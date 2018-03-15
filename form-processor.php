@@ -4,7 +4,33 @@ ini_set('display_errors', '1');
 
 require_once __DIR__.'/includes.php';
 use classes\CsrfToken;
+use classes\SessionHelper;
+
 //use models\Form;
+
+session_start();
+$s = new SessionHelper();
+
+if (time() - $_SESSION['LAST_ACTIVITY'] > 60 ){
+    $s->sessionDestroy();
+//    session_start();
+$tok = new CsrfToken();
+$tok->generateToken();
+}
+
+
+//    return json_encode(123);
+//return json_encode($tok, 123);
+//$t = $tok->token;
+
+
+
+//var_dump($s);
+var_dump($_SESSION);
+var_dump(time() - $_SESSION['LAST_ACTIVITY']);
+
+
+exit();
 
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 {
@@ -17,7 +43,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         return json_encode(var_dump($_POST));
     }
 
-    exit;
+    exit();
 }
 
 

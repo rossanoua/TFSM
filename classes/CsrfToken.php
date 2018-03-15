@@ -13,7 +13,7 @@ class CsrfToken
         if (empty($_SESSION['token'])) {
             $_SESSION['token'] = bin2hex(random_bytes(32));
         }
-        $this->token = $_SESSION['token'];
+        $this::$token = $_SESSION['token'];
     }
 
     public function validateToken($t){

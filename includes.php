@@ -5,6 +5,7 @@ define('__ROOT__', dirname(__FILE__));
 require_once __ROOT__.'/inc/config.php';
 
 require_once __ROOT__.'/classes/CsrfToken.php';
+require_once __ROOT__.'/classes/SessionHelper.php';
 require_once __ROOT__.'/models/Form.php';
 require_once __ROOT__.'/classes/Form.php';
 
