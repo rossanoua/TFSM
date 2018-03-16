@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'classes/CsrfToken.php';
 
 $tok = new \classes\CsrfToken();

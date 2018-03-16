@@ -1,22 +1,22 @@
 <?php
+session_start();
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', '1');
 
 require_once __DIR__.'/includes.php';
-use classes\CsrfToken;
 use classes\SessionHelper;
+use classes\CsrfToken;
 
+$s = new SessionHelper();
 //use models\Form;
 
-session_start();
-$s = new SessionHelper();
 
-if (time() - $_SESSION['LAST_ACTIVITY'] > 60 ){
-    $s->sessionDestroy();
-//    session_start();
-$tok = new CsrfToken();
-$tok->generateToken();
-}
+//if (time() - $_SESSION['LAST_ACTIVITY'] > 60 ){
+//    $s->sessionDestroy();
+////    session_start();
+//$tok = new CsrfToken();
+//$tok->generateToken();
+//}
 
 
 //    return json_encode(123);
@@ -24,8 +24,9 @@ $tok->generateToken();
 //$t = $tok->token;
 
 
-
-//var_dump($s);
+var_dump (session_name());
+var_dump (session_id());
+var_dump($s);
 var_dump($_SESSION);
 var_dump(time() - $_SESSION['LAST_ACTIVITY']);
 

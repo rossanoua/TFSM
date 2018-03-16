@@ -9,7 +9,7 @@ class CsrfToken
     public static $token;
 
     public function generateToken(){
-        session_start();
+//        session_start();
         if (empty($_SESSION['token'])) {
             $_SESSION['token'] = bin2hex(random_bytes(32));
         }
@@ -17,7 +17,7 @@ class CsrfToken
     }
 
     public function validateToken($t){
-        session_start();
+//        session_start();
         if(empty($_SESSION['token']))
         {
             return false;
