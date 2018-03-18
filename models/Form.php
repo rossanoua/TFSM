@@ -26,13 +26,18 @@ class Form
     }
 
     public function buildQuery(){
-        $this->query = "INSERT INTO ".$this->tablename. "( username, usersurname, email, comment, file ) VALUES (". $this->username .",". $this->usersurname .",". $this->email .",". $this->comment .",". $this->file .")";
+        $this->query = "INSERT INTO $this->tablename ( username, usersurname, email, comment, file ) VALUES (". "'". $this->username . "'" . ", " . "'" .$this->usersurname . "'" .", ". "'" . $this->email. "'" .", ". "'" . $this->comment . "'" .", ". "'" . $this->file . "')";
     }
 
     public function save(){
-        $this->dbsettings = require_once __DIR__.'../inc/config.php';
-        $dsn = 'mysql:dbname='.$this->dbsettings['db'].';host='.$this->dbsettings['host'];
-        $db = new \PDO($dsn, $this->dbsettings['dbuser'], $this->dbsettings['dbpass'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        global $config;
+
+        $dsn = 'mysql:dbname='.$config['db'].';host='.$config['host'].'';
+//var_dump($dsn);
+//exit();
+        $db = new \PDO($dsn, $config['dbuser'], $config['dbpass'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        $db->exec($this->query);
+
     }
 
 }

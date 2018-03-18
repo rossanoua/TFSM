@@ -4,34 +4,26 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Form Test Task for SphereMall</title>
-    <?php
-        require_once 'classes/CsrfToken.php';
-
-        $tok = new \classes\CsrfToken();
-        $tok->generateToken();
-        $token = $tok->token;
-    ?>
-    <meta content="<?= $token ?>" name="csrf_token" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="assets/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="/assets/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/AdminLTE.min.css">
+  <link rel="stylesheet" href="/assets/dist/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="assets/dist/_all-skins.min.css">
+  <link rel="stylesheet" href="/assets/dist/_all-skins.min.css">
 
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src=""//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
   <!-- Google Font -->
@@ -60,7 +52,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form id="contact-form" enctype="multipart/form-data" action="form-processor.php" method="post" class="form-horizontal">
-                <input type="hidden" name="csrf_tok" value="">
+<!--                <input type="hidden" name="csrf_tok" value="">-->
               <div class="box-body">
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Name</label>
@@ -92,13 +84,13 @@
                   </div>
                 </div>
 
-<!--                <div class="form-group">-->
-<!--                  <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="file" id="exampleInputFile" name="file" required>-->
-<!--                  </div>-->
-<!--                  <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>-->
-<!--                </div>-->
+                <div class="form-group">
+                  <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>
+                  <div class="col-sm-10">
+                    <input type="file" id="exampleInputFile" name="file" required>
+                  </div>
+                  <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>
+                </div>
 
               </div>
               <!-- /.box-body -->
@@ -120,7 +112,7 @@
   </div>
 </div>
 <!-- ./wrapper -->
-
+<div class="ajax-respond"></div>
 <!-- jQuery 3 -->
 <script src="assets/jquery/dist/jquery.min.js"></script>
 <!-- jQuery validate -->

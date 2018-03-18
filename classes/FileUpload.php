@@ -17,7 +17,7 @@ class FileUpload
     public $settings;
 
     public function __construct(){
-        $this->settings = include __DIR__.'../inc/config.php';
+//        $this->settings = include __DIR__.'../inc/config.php';
 
         if(isset($_FILES['file'])) {
             $this->errors = array();
@@ -27,7 +27,7 @@ class FileUpload
             $this->file_type = $_FILES['file']['type'];
             $this->file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
             $this->extensions = array("jpeg","jpg","png");
-            $this->up_dir = $this->settings['uploads'].str_replace('@','_',$_POST['email']);
+            $this->up_dir = $config['uploads'].str_replace('@','_',$_POST['email']);
         }
     }
 
