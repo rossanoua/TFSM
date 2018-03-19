@@ -1,7 +1,7 @@
 <?php
-//ini_set('error_reporting', E_ALL);
-//ini_set('display_errors', '1');
 namespace classes;
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', '1');
 require_once __DIR__.'/includes.php';
 //use models\Form;
 $d = new \models\Form();
