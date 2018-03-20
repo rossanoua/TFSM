@@ -5,16 +5,16 @@ ini_set('display_errors', '1');
 require_once __DIR__.'/includes.php';
 //use models\Form;
 $d = new \models\Form();
-$d->username = 'nnn2';
-$d->usersurname = 'snsnsn2';
-$d->email = 'w2@dd.sd';
-$d->file = 'sd.re2';
-$d->comment = 'sdfwsf
-wefwef2
-wefwef2
-wefwe2
-wef 2
-   edef2 edf2  we2.';
+$d->username = 'nnn3';
+$d->usersurname = 'snsnsn3';
+$d->email = 'w3@dd.sd';
+$d->file = 'sd3.re';
+$d->comment = 'sdfwsf3
+wefwef3
+wefwef3
+wefwe3
+wef 3
+  edef3 edf3 we3.';
 
 $d->buildQuery();
 //var_dump($d);

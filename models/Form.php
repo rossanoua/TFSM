@@ -34,11 +34,11 @@ class Form
         global $config;
 
 
-        $dsn = "'mysql:dbname='".$config['db']."';host='".$config['host'];
-        $db = new \PDO($dsn, $config['dbuser'], $config['dbpass']);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//var_dump($db);
+        $dsn = "mysql:dbname=".$config['db'].";host=".$config['host'];
+//var_dump($dsn);
 //exit();
+        $db = new \PDO($dsn, $config['dbuser'], $config['dbpass']);
+        $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare($this->query);
 
         $stmt->execute(array(
