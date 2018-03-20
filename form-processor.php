@@ -1,25 +1,48 @@
 <?php
 namespace classes;
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', '1');
+//ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', '1');
+require_once __DIR__.'/functions.php';
 require_once __DIR__.'/includes.php';
+
+
+$name = $_POST['name'];
+$sname = $_POST['usersurname'];
+$mail = $_POST['email'];
+$comment = $_POST['comment'];
+
+
+
 //use models\Form;
 $d = new \models\Form();
-$d->username = 'nnn3';
-$d->usersurname = 'snsnsn3';
-$d->email = 'w3@dd.sd';
+$d->username = $name;
+$d->usersurname = $sname;
+$d->email = $mail;
 $d->file = 'sd3.re';
-$d->comment = 'sdfwsf3
-wefwef3
-wefwef3
-wefwe3
-wef 3
-  edef3 edf3 we3.';
+$d->comment = $comment;
 
 $d->buildQuery();
 //var_dump($d);
 //exit();
 $d->save();
+
+
+$filllle = $_FILES[0];
+// Number of lines
+$max = 50;
+// The file must exist with at least 2 lines on it
+$file = "uploads/log.txt";
+addNew($file, date("H:m:s m.d.Y") . ' : name    => ' . $name    , $max);
+addNew($file,  date("H:m:s m.d.Y"). ' : sname   => ' . $sname   , $max);
+addNew($file, date("H:m:s m.d.Y") . ' : mail    => ' . $mail    , $max);
+addNew($file,  date("H:m:s m.d.Y"). ' : comment => ' . $comment , $max);
+
+foreach ($filllle as $key => $value){
+    addNew($file,  date("H:m:s m.d.Y") . " : " . $key. ' => ' . $value , $max);
+}
+
+return json_encode('ok');
+
 
 
 

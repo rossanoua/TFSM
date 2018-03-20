@@ -18,6 +18,10 @@ class Form
 
     public function setUsername(){
         $this->username = $_POST['username'];
+        $max = 50;
+// The file must exist with at least 2 lines on it
+        $file = "uploads/log.txt";
+        addNew($file, date("H:m:s m.d.Y") . ' : $this->username    => ' . $this->username    , $max);
         return $this->username;
     }
 

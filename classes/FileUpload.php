@@ -14,18 +14,18 @@ class FileUpload
     public $file_ext;
     public $extensions;
     public $up_dir;
-    public $settings;
+//    public $settings;
 
     public function __construct(){
 //        $this->settings = include __DIR__.'../inc/config.php';
-
-        if(isset($_FILES['file'])) {
+global $config;
+        if(isset($_FILES[0]['file'])) {
             $this->errors = array();
-            $this->file_name = $_FILES['file']['name'];
-            $this->file_size = $_FILES['file']['size'];
-            $this->file_tmp = $_FILES['file']['tmp_name'];
-            $this->file_type = $_FILES['file']['type'];
-            $this->file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
+            $this->file_name = $_FILES[0]['file']['name'];
+            $this->file_size = $_FILES[0]['file']['size'];
+            $this->file_tmp = $_FILES[0]['file']['tmp_name'];
+            $this->file_type = $_FILES[0]['file']['type'];
+            $this->file_ext = strtolower(end(explode('.', $_FILES[0]['file']['name'])));
             $this->extensions = array("jpeg","jpg","png");
             $this->up_dir = $config['uploads'].str_replace('@','_',$_POST['email']);
         }

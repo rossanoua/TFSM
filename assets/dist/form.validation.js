@@ -20,12 +20,22 @@
 
        $("#subm-form").on("click", function(e){
            e.preventDefault();
-           // var data = $("#contact-form").serialize();
+
+           var name = $("form input[name='username']").val();
+           var surname = $("form input[name='usersurname']").val();
+           var mail = $("form input[name='email']").val();
+           var comment = $("form textarea[name='comment']").val();
 
            var data = new FormData();
            $.each( files, function( key, value ){
                data.append( key, value );
            });
+
+           data.append( 'name', name);
+           data.append( 'usersurname', surname);
+           data.append( 'email', mail);
+           data.append( 'comment', comment);
+
 
            // console.log(data);
            $.ajax({
@@ -38,7 +48,7 @@
                success: function( respond, textStatus, jqXHR ){
 
                    // Если все ОК
-
+                    console.log(respond);
                    if( typeof respond.error === 'undefined' ){
                        // Файлы успешно загружены, делаем что нибудь здесь
 

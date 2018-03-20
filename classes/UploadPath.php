@@ -5,7 +5,12 @@ class UploadPath
 {
     public $path;
 
+    public function __construct(){
+        $this->getPath();
+    }
+
     public function setPath(){
+        global $config;
         $this->path = $config['uploads'];
     }
 
