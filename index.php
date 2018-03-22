@@ -58,21 +58,21 @@
                   <label for="name" class="col-sm-2 control-label">Name</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="username" id="name" placeholder="Name" >
+                    <input type="text" class="form-control" name="username" id="name" placeholder="Name" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="surname" class="col-sm-2 control-label">Surname</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="usersurname" id="surname" placeholder="Surname" >
+                    <input type="text" class="form-control" name="usersurname" id="surname" placeholder="Surname" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email"  id="inputEmail3" placeholder="Email" >
+                    <input type="email" class="form-control" name="email"  id="inputEmail3" placeholder="Email" required >
                   </div>
                 </div>
 
@@ -80,14 +80,14 @@
                   <label for="tarea" class="col-sm-2 control-label">Comment</label>
 
                   <div class="col-sm-10">
-                    <textarea id="tarea" class="form-control" rows="3" name="comment" placeholder="Enter ..." ></textarea>
+                    <textarea id="tarea" class="form-control" rows="3" name="comment" placeholder="Enter ..." required ></textarea>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>
                   <div class="col-sm-10">
-                    <input type="file" id="exampleInputFile" name="file" >
+                    <input type="file" id="exampleInputFile" name="file" required >
                   </div>
                   <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>
                 </div>

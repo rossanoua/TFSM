@@ -18,9 +18,6 @@
 
    var formSubmit = function(){
 
-       $("#subm-form").on("click", function(e){
-           e.preventDefault();
-
            var name = $("form input[name='username']").val();
            var surname = $("form input[name='usersurname']").val();
            var mail = $("form input[name='email']").val();
@@ -36,8 +33,6 @@
            data.append( 'email', mail);
            data.append( 'comment', comment);
 
-
-           // console.log(data);
            $.ajax({
                url: '/form-processor.php',
                type: 'post',
@@ -58,33 +53,62 @@
                        var html = '';
                        $.each( files_path, function( key, val ){ html += val +'<br>'; } );
                        $('.ajax-respond').html( html );
+
+                       name.val('');
+                       surname.val('');
+                       mail.val('');
+                       comment.val('');
+                       $.each( files, function( key, value ){
+                            console.log(key);
+                            console.log(value);
+                       });
+
                    }
                    else{
                        console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
                    }
                },
                error: function( jqXHR, textStatus, errorThrown ){
+
+                   $("form input[name='username']").val('');
+                   $("form input[name='usersurname']").val('');
+                   $("form input[name='email']").val('');
+                   $("form textarea[name='comment']").val('');
+                   // $.each( files, function( key, value ){
+                   //     value.val('');
+                   // });// todo wont work need empty file input with jQuery
+
                    console.log('ОШИБКИ AJAX запроса: ' + textStatus );
                }
            });
-       });
+
    };
 
     $("#contact-form").validate({
-        debug: true,
-        lang: 'ru',
-        invalidHandler: function(event, validator) {
-            // 'this' refers to the form
-            var errors = validator.numberOfInvalids();
-            if (errors) {
-                var message = errors == 1
-                    ? 'You missed 1 field. It has been highlighted'
-                    : 'You missed ' + errors + ' fields. They have been highlighted';
-                $("div.error span").html(message);
-                $("div.error").show();
-            } else {
-                $("div.error").hide();
+
+        rules: {
+            username: {
+                required: true,
+                minlength: 3,
+                maxlength: 32
+            },
+            usersurname: {
+                required: true,
+                minlength: 3,
+                maxlength: 32
+            },
+            email: {
+                required: true
+            },
+            comment: {
+                required: true,
+                minlength: 3,
+                maxlength: 500
+            },
+            file: {
+                required: true
             }
+
         },
         submitHandler: function(){
             formSubmit();
