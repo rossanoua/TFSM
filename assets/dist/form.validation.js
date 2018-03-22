@@ -56,7 +56,7 @@
 
                        var files_path = respond.files;
                        var html = '';
-                       $.each( files_path, function( key, val ){ html += val +'<br>'; } )
+                       $.each( files_path, function( key, val ){ html += val +'<br>'; } );
                        $('.ajax-respond').html( html );
                    }
                    else{
@@ -68,7 +68,7 @@
                }
            });
        });
-   }
+   };
 
     $("#contact-form").validate({
         debug: true,
@@ -88,7 +88,7 @@
         },
         submitHandler: function(){
             formSubmit();
-        },
+        }
 
     });
 

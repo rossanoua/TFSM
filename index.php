@@ -58,21 +58,21 @@
                   <label for="name" class="col-sm-2 control-label">Name</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="username" id="name" placeholder="Name" required>
+                    <input type="text" class="form-control" name="username" id="name" placeholder="Name" >
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="surname" class="col-sm-2 control-label">Surname</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="usersurname" id="surname" placeholder="Surname" required>
+                    <input type="text" class="form-control" name="usersurname" id="surname" placeholder="Surname" >
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email"  id="inputEmail3" placeholder="Email" required>
+                    <input type="email" class="form-control" name="email"  id="inputEmail3" placeholder="Email" >
                   </div>
                 </div>
 
@@ -80,14 +80,14 @@
                   <label for="tarea" class="col-sm-2 control-label">Comment</label>
 
                   <div class="col-sm-10">
-                    <textarea id="tarea" class="form-control" rows="3" name="comment" placeholder="Enter ..." required></textarea>
+                    <textarea id="tarea" class="form-control" rows="3" name="comment" placeholder="Enter ..." ></textarea>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputFile" class="col-sm-2 control-label">You avatar</label>
                   <div class="col-sm-10">
-                    <input type="file" id="exampleInputFile" name="file" required>
+                    <input type="file" id="exampleInputFile" name="file" >
                   </div>
                   <p class="help-block">Only jpeg, jpg and png file types allowed. Not bigger than 2 Megabytes</p>
                 </div>
@@ -117,9 +117,7 @@
 <script src="assets/jquery/dist/jquery.min.js"></script>
 <!-- jQuery validate -->
 <script src="assets/jquery/plugins/jquery-validate/jquery.validate.js"></script>
-<script src="assets/jquery/plugins/jquery-validate/additional-methods.js"></script>
-<!--<script src="assets/jquery/plugins/jquery-validate/localization/messages_ru.min.js"></script>-->
-<!--<script src="assets/jquery/plugins/jquery-validate/localization/messages_uk.min.js"></script>-->
+
 
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -127,12 +125,6 @@
 <!-- form validation script -->
 <script src="assets/dist/form.validation.js"></script>
 
-<!-- FastClick -->
-<!--<script src="assets/fastclick/lib/fastclick.js"></script>-->
-<!-- AdminLTE App -->
-<!--<script src="assets/dist/adminlte.min.js"></script>-->
-<!-- AdminLTE for demo purposes -->
-<!--<script src="assets/dist/demo.js"></script>-->
 <script>
 
 //(function($){
