@@ -51,7 +51,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form id="contact-form" enctype="multipart/form-data" action="form-processor.php" method="post" class="form-horizontal">
+            <form id="contact-form" enctype="multipart/form-data" action="" method="post" class="form-horizontal">
 <!--                <input type="hidden" name="csrf_tok" value="">-->
               <div class="box-body">
                 <div class="form-group">

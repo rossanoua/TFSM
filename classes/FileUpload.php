@@ -28,12 +28,14 @@ global $config;
             $this->file_ext = strtolower(end(explode('.', $_FILES[0]['file']['name'])));
             $this->extensions = array("jpeg","jpg","png");
             $this->up_dir = $config['uploads'].str_replace('@','_',$_POST['email']);
+            $this->ifExtension();
+            $this->ifFileSize();
         }
     }
 
     public function ifExtension(){
         if(in_array($this->file_ext,$this->extensions)=== false){
-        $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
         }
     }
 

@@ -34,7 +34,7 @@
            data.append( 'comment', comment);
 
            $.ajax({
-               url: '/form-processor.php',
+               url: '/ajax/form-processor.php',
                type: 'post',
                dataType: 'json',
                contentType: false,
