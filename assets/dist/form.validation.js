@@ -12,7 +12,7 @@
 
     function show_success_message() {
         $(".success-sent").show();
-        setTimeout(hide_success_message, 10000);
+        setTimeout(hide_success_message(), 10000);
     }
 
     function hide_error_message() {
@@ -21,7 +21,7 @@
 
     function show_error_message() {
         $(".error-sent").show();
-        setTimeout(hide_error_message, 10000);
+        setTimeout(hide_error_message(), 10000);
     }
 
    var formSubmit = function(){

@@ -46,7 +46,7 @@ class JustSendMail
     public function setMailBody(){
         global $config;
 
-        $this::$mail->msgHTML( include($_SERVER['DOCUMENT_ROOT'].'/'.$config['mail_templates'].'/'.'mail_one.php') );
+        $this::$mail->msgHTML( include($_SERVER['DOCUMENT_ROOT'].'/'.$config['mail_templates'].'mail_one.php') );
         
     }
 
