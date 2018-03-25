@@ -100,7 +100,21 @@
               </div>
               <!-- /.box-footer -->
             </form>
+              <div class="message success-sent" style="display: none;">
+                  <p>You form data was successfully sent.</p>
+                  <p>Mail was sent on you mailbox.</p>
+                  <p>Have a nice day!</p>
+              </div>
+
+              <div class="message error-sent" style="display: none;">
+                  <p>Ooops. Seems like something went wrong.</p>
+                  <p>We will fix it as fast as possible.</p>
+              </div>
+
           </div>
+
+
+
           <!-- /.box -->
 
         </div>

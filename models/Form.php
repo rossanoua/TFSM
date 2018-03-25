@@ -42,7 +42,7 @@ class Form
         $stmt = $db->prepare($this->query);
 
         $stmt->execute(array(
-            'username'=>"$this->username",
+            'username'=>$this->username,
             'usersurname'=>"$this->usersurname",
             'email'=>"$this->email",
             'comment'=>"$this->comment",
