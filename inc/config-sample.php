@@ -4,5 +4,7 @@ return $config = [
     'db'        => '',
     'dbuser'    => '',
     'dbpass'    => '',
-    'uploads'   => 'uploads',
+    'uploads'   => 'uploads/',
+    'smtp_login'   => '',
+    'smtp_pass'   => '',
 ];

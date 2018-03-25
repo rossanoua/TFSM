@@ -19,15 +19,15 @@ class FileUpload
     public function __construct(){
 //        $this->settings = include __DIR__.'../inc/config.php';
 global $config;
-        if(isset($_FILES[0]['file'])) {
+        if(isset($_FILES[0])) {
             $this->errors = array();
-            $this->file_name = $_FILES[0]['file']['name'];
-            $this->file_size = $_FILES[0]['file']['size'];
-            $this->file_tmp = $_FILES[0]['file']['tmp_name'];
-            $this->file_type = $_FILES[0]['file']['type'];
-            $this->file_ext = strtolower(end(explode('.', $_FILES[0]['file']['name'])));
+            $this->file_name = $_FILES[0]['name'];
+            $this->file_size = $_FILES[0]['size'];
+            $this->file_tmp = $_FILES[0]['tmp_name'];
+            $this->file_type = $_FILES[0]['type'];
+            $this->file_ext = strtolower(end(explode('.', $_FILES[0]['name'])));
             $this->extensions = array("jpeg","jpg","png");
-            $this->up_dir = $config['uploads'].str_replace('@','_',$_POST['email']);
+            $this->up_dir = $_SERVER['DOCUMENT_ROOT'].'/'.$config['uploads'].str_replace('@','_',$_POST['email']);
             $this->ifExtension();
             $this->ifFileSize();
         }

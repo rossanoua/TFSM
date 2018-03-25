@@ -1,35 +1,83 @@
 <?php
 namespace classes;
-//ini_set('error_reporting', E_ALL);
-//ini_set('display_errors', '1');
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', '1');
 require_once __DIR__.'/../functions.php';
 require_once __DIR__.'/../includes.php';
+    // Number of lines
+$max = 50;
+// The file must exist with at least 2 lines on it
+$file = __DIR__."/../uploads/log.txt";
 
 
+
+
+
+
+###############################################
+
+//To use PHPMailer:
+
+//Download the PHPMailer script from here: http://github.com/PHPMailer/PHPMailer
+//Extract the archive and copy the script's folder to a convenient place in your project.
+//Include the main script file -- require_once('path/to/file/class.phpmailer.php');
+
+use \PHPMailer\PHPMailer\PHPMailer;
+use \PHPMailer\PHPMailer\Exception;
+
+$email = new PHPMailer();
+$email->From      = 'you@example.com';
+$email->FromName  = 'Your Name';
+$email->Subject   = 'Message Subject';
+$email->Body      = $bodytext;
+$email->AddAddress( 'destinationaddress@example.com' );
+
+$file_to_attach = 'PATH_OF_YOUR_FILE_HERE';
+
+$email->AddAttachment( $file_to_attach , 'NameOfFile.pdf' );
+
+return $email->Send();
+
+################################################
+//$headers = 'From: raidho26@gmail.com' . "\r\n" .
+//    'Reply-To: raidho26@gmail.com' . "\r\n" .
+//    'X-Mailer: PHP/' . phpversion();
+//
+//
+//mail('raidho26@gmail.com', 'test', 'test', $headers);
+//exit();
+###############################################
 $d = new \models\Form();
-$file_upload = new FileUpload();
 $form_string_data = new Form();
+$file_upload = new FileUpload();
 
 
-if( $file_upload->ifNoErrors() ){
+if( $file_upload->ifNoErrors() && !empty($file_upload->up_dir) ){
     if(!$file_upload->ifUpDirExists()){
         $file_upload->createUpDir();
+        $file_upload->moveFile();
     }else{
         $file_upload->moveFile();
     }
+
+addNew($file, date("H:m:s m.d.Y") . ' : $file_upload->up_dir    => ' . $file_upload->up_dir    , $max);
+//addNew($file,  date("H:m:s m.d.Y"). ' : sname   => ' . $sname   , $max);
+//addNew($file, date("H:m:s m.d.Y") . ' : mail    => ' . $mail    , $max);
+//addNew($file,  date("H:m:s m.d.Y"). ' : comment => ' . $comment , $max);
+
+    $d->username = $form_string_data->username;
+    $d->usersurname = $form_string_data->usersurname;
+    $d->email = $form_string_data->email;
+    $d->file = $file_upload->file_name;
+    $d->comment = $form_string_data->comment;
+
+    $d->buildQuery();
+    //var_dump($d);
+    //exit();
+    $d->save();
 }
 
 
-$d->username = $form_string_data->username;
-$d->usersurname = $form_string_data->usersurname;
-$d->email = $form_string_data->email;
-$d->file = $file_upload->file_name;
-$d->comment = $form_string_data->comment;
-
-$d->buildQuery();
-//var_dump($d);
-//exit();
-$d->save();
 
 
 //$filllle = $_FILES[0];

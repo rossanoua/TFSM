@@ -28,7 +28,7 @@
                data.append( key, value );
            });
 
-           data.append( 'name', name);
+           data.append( 'username', name);
            data.append( 'usersurname', surname);
            data.append( 'email', mail);
            data.append( 'comment', comment);
@@ -43,25 +43,28 @@
                success: function( respond, textStatus, jqXHR ){
 
                    // Если все ОК
+                    console.log('good');
                     console.log(respond);
                    if( typeof respond.error === 'undefined' ){
                        // Файлы успешно загружены, делаем что нибудь здесь
 
                        // выведем пути к загруженным файлам в блок '.ajax-respond'
 
-                       var files_path = respond.files;
-                       var html = '';
-                       $.each( files_path, function( key, val ){ html += val +'<br>'; } );
-                       $('.ajax-respond').html( html );
+                       // var files_path = respond.files;
+                       // var html = '';
+                       // $.each( files_path, function( key, val ){ html += val +'<br>'; } );
+                       // $('.ajax-respond').html( html );
 
-                       name.val('');
-                       surname.val('');
-                       mail.val('');
-                       comment.val('');
-                       $.each( files, function( key, value ){
-                            console.log(key);
-                            console.log(value);
-                       });
+                       // name.val('');
+                       // surname.val('');
+                       // mail.val('');
+                       // comment.val('');
+                       // $.each( files, function( key, value ){
+                       //      console.log(key);
+                       //      console.log(value);
+                       // });
+
+
 
                    }
                    else{
@@ -70,10 +73,11 @@
                },
                error: function( jqXHR, textStatus, errorThrown ){
 
-                   $("form input[name='username']").val('');
-                   $("form input[name='usersurname']").val('');
-                   $("form input[name='email']").val('');
-                   $("form textarea[name='comment']").val('');
+                   // $("form input[name='username']").val('');
+                   // $("form input[name='usersurname']").val('');
+                   // $("form input[name='email']").val('');
+                   // $("form textarea[name='comment']").val('');
+
                    // $.each( files, function( key, value ){
                    //     value.val('');
                    // });// todo wont work need empty file input with jQuery
