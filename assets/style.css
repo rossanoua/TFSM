@@ -21,3 +21,17 @@
 .form textarea{
     max-width: 100%;
 }
+
+.message{
+    text-align: center;
+    line-height: 1em;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.success-sent{
+    background-color: #46e03d;
+}
+.error-sent{
+    background-color: #ec2b2b;
+}

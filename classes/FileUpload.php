@@ -14,26 +14,33 @@ class FileUpload
     public $file_ext;
     public $extensions;
     public $up_dir;
-    public $settings;
+
 
     public function __construct(){
-        $this->settings = include __DIR__.'../inc/config.php';
 
-        if(isset($_FILES['file'])) {
+        global $config;
+        if(isset($_FILES[0])) {
             $this->errors = array();
-            $this->file_name = $_FILES['file']['name'];
-            $this->file_size = $_FILES['file']['size'];
-            $this->file_tmp = $_FILES['file']['tmp_name'];
-            $this->file_type = $_FILES['file']['type'];
-            $this->file_ext = strtolower(end(explode('.', $_FILES['file']['name'])));
+            $this->file_name = $_FILES[0]['name'];
+            $this->file_size = $_FILES[0]['size'];
+            $this->file_tmp = $_FILES[0]['tmp_name'];
+            $this->file_type = $_FILES[0]['type'];
+            $this->getUploadFileExtension();
             $this->extensions = array("jpeg","jpg","png");
-            $this->up_dir = $this->settings['uploads'].str_replace('@','_',$_POST['email']);
+            $this->up_dir = $_SERVER['DOCUMENT_ROOT'].'/'.$config['uploads'].str_replace('@','_',$_POST['email']);
+            $this->ifExtension();
+            $this->ifFileSize();
         }
+    }
+
+    public function getUploadFileExtension(){
+        $f = explode('.', $_FILES[0]['name']);
+        $this->file_ext = end($f);
     }
 
     public function ifExtension(){
         if(in_array($this->file_ext,$this->extensions)=== false){
-        $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
         }
     }
 

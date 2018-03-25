@@ -11,7 +11,7 @@ class Form
     public $file;
     public $query;
     private $tablename;
-    private $dbsettings;
+//    private $dbsettings;
 
     public function __construct(){
         $this->tableName();
@@ -26,13 +26,30 @@ class Form
     }
 
     public function buildQuery(){
-        $this->query = "INSERT INTO ".$this->tablename. "( username, usersurname, email, comment, file ) VALUES (". $this->username .",". $this->usersurname .",". $this->email .",". $this->comment .",". $this->file .")";
+//        $this->query = "INSERT INTO $this->tablename ( username, usersurname, email, comment, file ) VALUES (". "'". $this->username . "'" . ", " . "'" .$this->usersurname . "'" .", ". "'" . $this->email. "'" .", ". "'" . $this->comment . "'" .", ". "'" . $this->file . "')";
+        $this->query = "INSERT INTO form_users ( username, usersurname, email, comment, file ) VALUES (:username, :usersurname, :email, :comment, :file)";
     }
 
     public function save(){
-        $this->dbsettings = require_once __DIR__.'../inc/config.php';
-        $dsn = 'mysql:dbname='.$this->dbsettings['db'].';host='.$this->dbsettings['host'];
-        $db = new \PDO($dsn, $this->dbsettings['dbuser'], $this->dbsettings['dbpass'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        global $config;
+
+
+        $dsn = "mysql:dbname=".$config['db'].";host=".$config['host'];
+//var_dump($dsn);
+//exit();
+        $db = new \PDO($dsn, $config['dbuser'], $config['dbpass']);
+        $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $stmt = $db->prepare($this->query);
+
+        $stmt->execute(array(
+            'username'=>$this->username,
+            'usersurname'=>"$this->usersurname",
+            'email'=>"$this->email",
+            'comment'=>"$this->comment",
+            'file'=>"$this->file",
+
+        ));
+
     }
 
 }
