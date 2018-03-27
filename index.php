@@ -130,16 +130,16 @@
 <!-- ./wrapper -->
 <div class="ajax-respond"></div>
 <!-- jQuery 3 -->
-<script src="assets/jquery/dist/jquery.min.js"></script>
+<script src="/assets/jquery/dist/jquery.min.js"></script>
 <!-- jQuery validate -->
-<script src="assets/jquery/plugins/jquery-validate/jquery.validate.js"></script>
+<script src="/assets/jquery/plugins/jquery-validate/jquery.validate.js"></script>
 
 
 <!-- Bootstrap 3.3.7 -->
-<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- form validation script -->
-<script src="assets/dist/form.validation.js"></script>
+<script src="/assets/dist/form.validation.js"></script>
 
 <script>
 

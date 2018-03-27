@@ -16,7 +16,7 @@
     }
 
     function hide_error_message() {
-        $(".success-sent").hide();
+        $(".error-sent").hide();
     }
 
     function show_error_message() {

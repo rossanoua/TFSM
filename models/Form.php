@@ -26,7 +26,6 @@ class Form
     }
 
     public function buildQuery(){
-//        $this->query = "INSERT INTO $this->tablename ( username, usersurname, email, comment, file ) VALUES (". "'". $this->username . "'" . ", " . "'" .$this->usersurname . "'" .", ". "'" . $this->email. "'" .", ". "'" . $this->comment . "'" .", ". "'" . $this->file . "')";
         $this->query = "INSERT INTO form_users ( username, usersurname, email, comment, file ) VALUES (:username, :usersurname, :email, :comment, :file)";
     }
 
@@ -34,9 +33,8 @@ class Form
         global $config;
 
 
-        $dsn = "mysql:dbname=".$config['db'].";host=".$config['host'];
-//var_dump($dsn);
-//exit();
+        $dsn = "mysql:dbname=".$config['db'].";host=".$config['host'].";charset=utf8";
+
         $db = new \PDO($dsn, $config['dbuser'], $config['dbpass']);
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare($this->query);
